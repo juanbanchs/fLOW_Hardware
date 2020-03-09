@@ -1,9 +1,9 @@
-// DS3231_UnixTime
+// DS3231_Serial_Easy
 // Copyright (C)2015 Rinky-Dink Electronics, Henning Karlsen. All right reserved
 // web: http://www.RinkyDinkElectronics.com/
 //
 // A quick demo of how to use my DS3231-library to 
-// convert date and time to UnixTime
+// quickly send time and date information over a serial link
 //
 // To use the hardware I2C (TWI) interface of the Arduino you must connect
 // the pins as follows:
@@ -40,55 +40,38 @@
 
 #include <DS3231.h>
 
-
 // Init the DS3231 using the hardware interface
 DS3231  rtc(SDA, SCL);
-
-Time t;
 
 void setup()
 {
   // Setup Serial connection
-//  Serial.begin(115200);
+  Serial.begin(115200);
   // Uncomment the next line if you are using an Arduino Leonardo
   //while (!Serial) {}
-
+  
   // Initialize the rtc object
-//  rtc.begin();
-   
-  Serial.begin(115200); //Starts serial connection
-  rtcObject.Begin();    //Starts I2C
- 
-  RtcDateTime currentTime = RtcDateTime(16,05,18,21,20,0); //define date and time object
-  rtcObject.SetDateTime(currentTime);  
+  rtc.begin();
+  
+  // The following lines can be uncommented to set the date and time
+  //rtc.setDOW(SUNDAY);     // Set Day-of-Week to SUNDAY
+  //rtc.setTime(0, 23, 0);     // Set the time to 12:00:00 (24hr format)
+  //rtc.setDate(1, 3, 2020);   // Set the date to January 1st, 2014
 }
 
 void loop()
 {
-  // Send Current time
-  Serial.print("Current Time.............................: ");
+  // Send Day-of-Week
   Serial.print(rtc.getDOWStr());
   Serial.print(" ");
+  
+  // Send date
   Serial.print(rtc.getDateStr());
   Serial.print(" -- ");
+
+  // Send time
   Serial.println(rtc.getTimeStr());
-
-  // Send Unixtime
-  // ** Note that there may be a one second difference between the current time **
-  // ** and current unixtime show if the second changes between the two calls   **
-  Serial.print("Current Unixtime.........................: ");
-  Serial.println(rtc.getUnixTime(rtc.getTime()));
   
-  // Send Unixtime for 00:00:00 on January 1th 2014
-  Serial.print("Unixtime for 00:00:00 on January 1th 2014: ");
-  t.hour = 0;
-  t.min = 0;
-  t.sec = 0;
-  t.year = 2014;
-  t.mon = 1;
-  t.date = 1;
-  Serial.println(rtc.getUnixTime(t));
-
   // Wait one second before repeating :)
   delay (1000);
 }

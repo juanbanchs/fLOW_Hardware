@@ -40,7 +40,6 @@
 
 #include <DS3231.h>
 
-
 // Init the DS3231 using the hardware interface
 DS3231  rtc(SDA, SCL);
 
@@ -49,18 +48,12 @@ Time t;
 void setup()
 {
   // Setup Serial connection
-//  Serial.begin(115200);
+  Serial.begin(115200);
   // Uncomment the next line if you are using an Arduino Leonardo
   //while (!Serial) {}
 
   // Initialize the rtc object
-//  rtc.begin();
-   
-  Serial.begin(115200); //Starts serial connection
-  rtcObject.Begin();    //Starts I2C
- 
-  RtcDateTime currentTime = RtcDateTime(16,05,18,21,20,0); //define date and time object
-  rtcObject.SetDateTime(currentTime);  
+  rtc.begin();
 }
 
 void loop()
