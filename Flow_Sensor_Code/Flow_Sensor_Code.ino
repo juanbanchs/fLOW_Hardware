@@ -6,7 +6,7 @@ Connect Vcc and Gnd of sensor to arduino, and the
 signal line to arduino digital pin 2.
  
  */
-#include <StackThunk.h>
+//#include <StackThunk.h>
 byte statusLed    = 13;
 
 byte sensorInterrupt = 0;  // 0 = digital pin 2
@@ -29,7 +29,7 @@ void setup()
   
   // Initialize a serial connection for reporting values to the host
   Serial.begin(57600);
-   Serial.printf("BSSL stack: %d\n", stack_thunk_get_max_usage());
+  //Serial.printf("BSSL stack: %d\n", stack_thunk_get_max_usage());
   // Set up the status LED line as an output
   pinMode(statusLed, OUTPUT);
   digitalWrite(statusLed, HIGH);  // We have an active-low LED attached
@@ -46,7 +46,7 @@ void setup()
   // The Hall-effect sensor is connected to pin 2 which uses interrupt 0.
   // Configured to trigger on a FALLING state change (transition from HIGH
   // state to LOW state)
-//  attachInterrupt(sensorInterrupt, pulseCounter, FALLING);
+  attachInterrupt(sensorInterrupt, pulseCounter, FALLING);
 }
 
 /**
@@ -58,7 +58,7 @@ void loop()
    if((millis() - oldTime) > 1000)    // Only process counters once per second
   { 
     
-//    detachInterrupt(sensorInterrupt);
+    detachInterrupt(sensorInterrupt);
         
     // Because this loop may not complete in exactly 1 second intervals we calculate
     // the number of milliseconds that have passed since the last execution and use
@@ -86,7 +86,7 @@ void loop()
     
     // Print the flow rate for this second in litres / minute
     Serial.print("Flow rate: ");
-    Serial.print(int(flow_rate));  // Print the integer part of the variable
+    Serial.print(flow_rate);  // Print the integer part of the variable
     Serial.print("L/min");
     Serial.print("\t");       // Print tab space
 
@@ -110,7 +110,8 @@ void loop()
 /*
 Insterrupt Service Routine
  */
-ICACHE_RAM_ATTR void pulseCounter()
+//ICACHE_RAM_ATTR 
+void pulseCounter()
 {
   // Increment the pulse counter
   pulseCount++;

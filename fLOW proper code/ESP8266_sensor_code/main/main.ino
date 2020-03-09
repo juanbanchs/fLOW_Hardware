@@ -8,11 +8,13 @@ RtcDS3231<TwoWire> Rtc(Wire); //Good luck?
 uint32_t initial_time;
 uint32_t final_time;
 uint32_t flow_duration;
-int water_volume;
+float water_volume;
 int sensor_activated = 0;
+byte sensorInterrupt = 0;  // 0 = digital pin 2
+
 
 //Constants
-const int FLOWRATE_THRESHOLD = 0.2;
+const float FLOWRATE_THRESHOLD = 0.1;
 
 void setup() 
 {
@@ -26,6 +28,22 @@ void setup()
 
 void loop() 
 {
+   attachInterrupt(sensorInterrupt, start_collecting, RISING);
+   if (sensor_activated)
+   {
+      detachInterrupt(sensorInterrupt); //detach the triggering
+      initial_time = get_time();
+      water_volume = get_vol();
+      final_time = get_time();
+      flow_duration = get_duration(initial_time, final_time);
+      Serial.print("Water volume: ");
+      Serial.println(water_volume);
+      Serial.print("Duration: ");
+      Serial.println(flow_duration);
+      Serial.println("left get_vol");
+
+   }
+  /*
   //If flowrate > 0.2 L
 //  if(sensor_activated == 1)
 //  {
@@ -41,6 +59,6 @@ void loop()
 //  Create packet
 //  Send to firebase
     sensor_activated = 0;
-    
+    */
 //  } 
 }
