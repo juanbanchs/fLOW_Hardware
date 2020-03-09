@@ -1,18 +1,19 @@
 #include <Wire.h> //Communication between DS3231 time module and ESP8266
 #include <RtcDS3231.h> //library for DS3231 time module
+#include <ArduinoJson.h>
 
 //Initialization
 RtcDS3231<TwoWire> Rtc(Wire); //Good luck?
 
-//Variables
+//Global Variables
 uint32_t initial_time;
 uint32_t final_time;
 uint32_t flow_duration;
 float water_volume;
 int sensor_activated = 0;
 byte sensorInterrupt = 0;  // 0 = digital pin 2
-
-
+StaticJsonDocument<200> doc;
+JsonObject package = doc.to<JsonObject>();
 //Constants
 const float FLOWRATE_THRESHOLD = 0.1;
 
@@ -24,6 +25,8 @@ void setup()
   //  Flow rate sensor & time module initialization
   initialize_time_module();
   initialize_flow_rate_sensor();
+  
+
 }
 
 void loop() 
@@ -40,7 +43,20 @@ void loop()
       Serial.println(water_volume);
       Serial.print("Duration: ");
       Serial.println(flow_duration);
-      Serial.println("left get_vol");
+
+      //create json package to send to firebase
+      if (water_volume > 0)
+      {
+//        JsonObject data = package.createNestedObject(String(initial_time));
+//        data["duration"] = flow_duration; //put value 
+//        data["volume"] = water_volume;
+//        serializeJsonPretty(package, Serial);
+        String data = create_json_package();
+        Serial.println(data);
+        //clear json document for next round of data  
+        doc.clear();
+      }
+//      Serial.println("left get_vol");
 
    }
   /*
