@@ -10,6 +10,8 @@ void initialize_time_module()
 uint32_t get_time() 
 {
   RtcDateTime now = Rtc.GetDateTime();
+  Serial.print("in get time");
+  Serial.print(now.Epoch32Time());
   return now.Epoch32Time();
 }
 

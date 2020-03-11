@@ -1,9 +1,9 @@
-#include <Firebase.h>
-#include <FirebaseArduino.h>
-#include <FirebaseCloudMessaging.h>
-#include <FirebaseError.h>
-#include <FirebaseHttpClient.h>
-#include <FirebaseObject.h>
+//#include <Firebase.h>
+//#include <FirebaseArduino.h>
+//#include <FirebaseCloudMessaging.h>
+//#include <FirebaseError.h>
+//#include <FirebaseHttpClient.h>
+//#include <FirebaseObject.h>
 
 //
 // Copyright 2015 Google Inc.
