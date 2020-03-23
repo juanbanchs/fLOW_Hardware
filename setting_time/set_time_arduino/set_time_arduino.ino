@@ -26,7 +26,7 @@ void loop()
 void set_time_arduino() 
 {
   rtc.begin();
-//  rtc.setDOW(FRIDAY);     // Set Day-of-Week to SUNDAY
-//  rtc.setTime(6, 25, 40);     // Set the time to 12:00:00 (24hr format)
-//  rtc.setDate(6, 3, 2020);   // Set the date to January 1st, 2014
+//  rtc.setDOW(WEDNESDAY);     // Set Day-of-Week to SUNDAY
+//  rtc.setTime(7, 24, 30);     // Set the time to 12:00:00 (24hr format)
+//  rtc.setDate(11, 3, 2020);   // Set the date to January 1st, 2014
 }
