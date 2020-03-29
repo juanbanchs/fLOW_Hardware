@@ -8,8 +8,7 @@ In order to run this code on the ESP8266 Wifi MCU, please make sure you have the
 * The board selected is 'Node MCU 1.0'. Select this in Tools > Board > scroll down to Node MCU 1.0
   * If 'Node MCU  1.0' is not an option, follow the steps [here](https://www.instructables.com/id/Esp8266-Firebase-Connection/) to install the board manager
 * Ensure the libraries are installed by going to Sketch > Include Library > Manage Libraries
- * ArduinoJson 5.13.1
- * 
+  * ArduinoJson 5.13.1
 
 ### Folders
 
