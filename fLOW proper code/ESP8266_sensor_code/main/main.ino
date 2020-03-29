@@ -6,8 +6,12 @@
 #include <FirebaseArduino.h> //library for Firebase
 
 // Firebase and Wifi Keys
-#define FIREBASE_HOST "wifi-test-4f471.firebaseio.com"
-#define FIREBASE_AUTH "cdcAVI94Alk9mgeGwLe10HWI241hnobn26ndzsGQ"
+// Juan's test database
+//#define FIREBASE_HOST "wifi-test-4f471.firebaseio.com"
+//#define FIREBASE_AUTH "cdcAVI94Alk9mgeGwLe10HWI241hnobn26ndzsGQ"
+// Actual database
+#define FIREBASE_HOST "testproj-81eb3.firebaseio.com"
+#define FIREBASE_AUTH "MsuTT4QhkfwMGufBHZFKGgDbXk5AHTqGKJKQ7RCR"
 #define WIFI_SSID "UCLA_WEB"
 #define WIFI_PASSWORD ""
 
