@@ -2,6 +2,11 @@
 
 This repository is for the Arduino code for fLOW, a project to develop a water usage sensor to bring awareness about water waste.
 
+### Utilizing the code
+
+In order to run this code on the ESP8266 Wifi MCU, please make sure you have these set:
+* The board selected is 'Node MCU 1.0'. Select this in Tools > Board > scroll down to Node MCU 1.0
+  * Follow the steps [here](https://www.instructables.com/id/Esp8266-Firebase-Connection/) to install the board manager
 ### Folders
 
 #### Libraries
