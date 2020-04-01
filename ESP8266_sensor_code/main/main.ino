@@ -6,10 +6,14 @@
 #include <FirebaseArduino.h> //library for Firebase
 
 // Firebase and Wifi Keys
-#define FIREBASE_HOST "wifi-test-4f471.firebaseio.com"
-#define FIREBASE_AUTH "cdcAVI94Alk9mgeGwLe10HWI241hnobn26ndzsGQ"
-#define WIFI_SSID "UCLA_WEB"
-#define WIFI_PASSWORD ""
+//testproj-81eb3.firebaseio.com
+//#define FIREBASE_HOST "wifi-test-4f471.firebaseio.com"
+//#define FIREBASE_AUTH "cdcAVI94Alk9mgeGwLe10HWI241hnobn26ndzsGQ"
+#define FIREBASE_HOST "testproj-81eb3.firebaseio.com/"
+#define FIREBASE_AUTH "MsuTT4QhkfwMGufBHZFKGgDbXk5AHTqGKJKQ7RCR"
+// Change as needed
+#define WIFI_SSID "Kinkin2"
+#define WIFI_PASSWORD "zanyoctopus986"
 
 //Initialization
 RtcDS3231<TwoWire> Rtc(Wire); //Good luck?
@@ -27,7 +31,8 @@ StaticJsonBuffer<200> buf2;
 JsonObject& package2 = buf2.createObject();
 
 //Constants
-const float FLOWRATE_THRESHOLD = 0.1;
+// changed from 0.1 to 0.01
+const float FLOWRATE_THRESHOLD = 0.01;
 
 void setup() 
 {

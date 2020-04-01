@@ -1,7 +1,7 @@
 //flow rate sensor variables
 //byte sensorInterrupt = 0;  // 0 = digital pin 2
 byte sensorPin       = 2;
-float calibrationFactor = 4.5;
+float calibrationFactor = 100;
 volatile byte pulseCount = 0; 
 float flow_rate = 0.0;
 //unsigned int flow_liters = 0;
@@ -12,6 +12,8 @@ unsigned long oldTime = 0;
 
 //flow rate constants
 const float SAMPLING_INTERVAL = 1000.0;
+
+//decrease sampling interval, decrease threshold 
 
 float get_vol()
 {

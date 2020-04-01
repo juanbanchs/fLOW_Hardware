@@ -19,7 +19,7 @@ void push_to_firebase(JsonVariant data_package)
 {
   //Push a log
 //  Firebase.push("data", data_package);
-  String path = "data/" + String(initial_time);
+  String path = "water_data/" + String(initial_time);
   Firebase.set(path, data_package);
   // handle error
   if (Firebase.failed()) {
