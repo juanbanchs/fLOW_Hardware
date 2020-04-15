@@ -2,8 +2,6 @@
 
 This repository is for the Arduino code for fLOW, a project to develop a water usage sensor to bring awareness about water waste.
 
-HAHA fake news allison
-
 ### Utilizing the code
 
 In order to run this code on the ESP8266 Wifi MCU, please make sure you have these set:
