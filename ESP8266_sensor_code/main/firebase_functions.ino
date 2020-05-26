@@ -6,9 +6,9 @@ void initialize_wifi()
 //    Serial.print(".");
     delay(500);
   }
-//  Serial.println();
-//  Serial.print("connected: ");
-//  Serial.println(WiFi.localIP());
+  Serial.println();
+  Serial.print("connected: ");
+  Serial.println(WiFi.localIP());
   
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
 }
