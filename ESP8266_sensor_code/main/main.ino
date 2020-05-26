@@ -12,8 +12,10 @@
 #define FIREBASE_HOST "testproj-81eb3.firebaseio.com/"
 #define FIREBASE_AUTH "MsuTT4QhkfwMGufBHZFKGgDbXk5AHTqGKJKQ7RCR"
 // Change as needed
-#define WIFI_SSID "Kinkin2"
-#define WIFI_PASSWORD "zanyoctopus986"
+//#define WIFI_SSID "Kinkin2"
+//#define WIFI_PASSWORD "zanyoctopus986"
+#define WIFI_SSID "Singapore"
+#define WIFI_PASSWORD "REMFVREMVJSAM"
 
 //Initialization
 RtcDS3231<TwoWire> Rtc(Wire); //Good luck?
