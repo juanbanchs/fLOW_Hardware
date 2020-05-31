@@ -5,16 +5,13 @@
 #include <ESP8266WiFi.h> //for Wifi module on MCU
 #include <FirebaseArduino.h> //library for Firebase
 
-// Firebase and Wifi Keys
-//testproj-81eb3.firebaseio.com
+// Firebase and Wifi Keys  -  ||Change as needed||
 //#define FIREBASE_HOST "wifi-test-4f471.firebaseio.com"
 //#define FIREBASE_AUTH "cdcAVI94Alk9mgeGwLe10HWI241hnobn26ndzsGQ"
-#define FIREBASE_HOST "testproj-81eb3.firebaseio.com/"
+#define FIREBASE_HOST "testproj-81eb3.firebaseio.com"
 #define FIREBASE_AUTH "MsuTT4QhkfwMGufBHZFKGgDbXk5AHTqGKJKQ7RCR"
-// Change as needed
-//#define WIFI_SSID "Kinkin2"
-//#define WIFI_PASSWORD "zanyoctopus986"
-
+#define WIFI_SSID "A"
+#define WIFI_PASSWORD "A"
 
 //Initialization
 RtcDS3231<TwoWire> Rtc(Wire); //Good luck?
@@ -43,7 +40,9 @@ void setup()
   //  Flow rate sensor & time module initialization
   initialize_time_module();
   initialize_flow_rate_sensor();
-  initialize_wifi (); 
+  initialize_wifi(); 
+//  initialize_firebase();
+//  initialize_TCP_connection();
   package2["key"] = 2;
 }
 
@@ -61,26 +60,21 @@ void loop()
       Serial.println(water_volume);
       Serial.print("Duration: ");
       Serial.println(flow_duration);
+      send_http_request(initial_time, water_volume);
 
       //create json package to send to firebase
-      if (water_volume > 0)
-      {
-          StaticJsonBuffer<200> buf;
-          JsonObject& package = buf.createObject();
-//        JsonObject data = package.createNestedObject(String(initial_time));
-//        data["duration"] = flow_duration; //put value 
-//        data["volume"] = water_volume;
-//        serializeJsonPretty(package, Serial);
-//        JsonVariant data_package = create_json_package();
-//        Serial.println(data_package.as<String>());
-        // Send package
-//        JsonVariant data_package = package2;
-        create_json_package(package);
-        push_to_firebase(package);
-        // Clear json document for next round of data  
-        buf.clear();
-      }
-//      Serial.println("left get_vol");
+//      if (water_volume > 0)
+//      {
+//        StaticJsonBuffer<200> buf;
+//        JsonObject& package = buf.createObject();
+//        
+//        // Send package
+//        create_json_package(package);
+//        push_to_firebase(package);
+//        
+//        // Clear json document for next round of data  
+//        buf.clear();
+//      }
 
    }
   /*

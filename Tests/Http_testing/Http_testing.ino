@@ -1,10 +1,10 @@
 /* This sketch sends data via HTTP GET requests to esp8266-shop.com and returns the website in html format which is printed on the console */
 
 #include <ESP8266WiFi.h>
-const char* ssid = "Singapore"; //replace with your own wifi ssid
-const char* password = "REMFVREMVJSAM"; //replace with your own wifi ssid password
-const char* host = "129.146.137.152";
-int value = 0;
+const char* ssid = "A"; //replace with your own wifi ssid
+const char* password = "A"; //replace with your own wifi ssid password
+const char* host = "esp8266-shop.com";
+const int httpPort = 80;
 
 void setup() {
   Serial.begin(115200); delay(10); // We start by connecting to a WiFi network Serial.println();
@@ -23,20 +23,21 @@ void setup() {
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
 
-  delay(5000); ++value; Serial.print("connecting to ");
+  delay(5000); 
+  Serial.print("connecting to ");
   Serial.println(host); // Use WiFiClient class to create TCP connections
   WiFiClient client;
-  const int httpPort = 3000;
+
   if (!client.connect(host, httpPort)) {
     Serial.println("connection failed");
     return;
   }
-  // We now create a URI for the request
+  // We now create a URL for the request
   //this url contains the informtation we want to send to the server
   //if esp8266 only requests the website, the url is empty
   String url = "/";
-//  url += "add/100/1/1.2";
-  url += "data";
+  //  url += "add/100/1/1.2";
+  //  url += "data";
  
   Serial.print("Requesting URL: ");
   Serial.println(url); // This will send the request to the server
