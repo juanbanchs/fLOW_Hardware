@@ -22,11 +22,12 @@ float get_vol()
   total_liters = 0;
   delay(SAMPLING_INTERVAL);
   flow_rate = ((SAMPLING_INTERVAL/ (millis() - oldTime)) * pulseCount) / calibrationFactor;
-//flow_rate = 10;
-  Serial.print("Flow rate: ");
-  Serial.println(flow_rate);  // Print the integer part of the variable
-  Serial.print("Pulsecount: ");
-  Serial.println(pulseCount); 
+
+//  This would print your flowrate nicely (But done later instead)
+//  Serial.print("Flow rate: ");
+//  Serial.println(flow_rate);
+//  Serial.print("Pulsecount: ");
+//  Serial.println(pulseCount); 
 
   
   oldTime = millis();
@@ -48,7 +49,6 @@ float get_vol()
         flow_liters = (flow_rate / 60) * (SAMPLING_INTERVAL/1000);
         total_liters += flow_liters;
         print_volume();
-        Serial.print("in flowrate loop");
     
           // Reset the pulse counter so we can start incrementing again
         pulseCount = 0;    
