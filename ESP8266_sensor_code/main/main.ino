@@ -12,7 +12,7 @@
 //#define FIREBASE_AUTH "cdcAVI94Alk9mgeGwLe10HWI241hnobn26ndzsGQ"
 #define FIREBASE_HOST "testproj-81eb3.firebaseio.com"
 #define FIREBASE_AUTH "MsuTT4QhkfwMGufBHZFKGgDbXk5AHTqGKJKQ7RCR"
-#define WIFI_SSID "Singapore"
+#define WIFI_SSID ""
 #define WIFI_PASSWORD ""
 
 //Initialization
