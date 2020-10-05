@@ -1,5 +1,6 @@
 const char* host = "129.146.137.152";
 const int httpPort = 3000;
+const int device_ID = 0;
 
 // If you wanted to create the connection from the start. -- Not working --
 //void initialize_TCP_connection()
@@ -19,7 +20,6 @@ const int httpPort = 3000;
 
 void send_http_request(uint32_t initial_time, float water_volume)
 {
-  //Initialize Connection
   WiFiClient client;
   if (!client.connect(host, httpPort))
   {
@@ -28,13 +28,12 @@ void send_http_request(uint32_t initial_time, float water_volume)
   }
 
   // We now create a URL for the request with informtation we want to send to the server
-  String url = "/"; //If website request only, the url is empty, otherwise, add parameters
-  //  Examples: url += "add/100/1/1.2"; url += "data";
+  String url = "/";
   url += "add/";
   url += initial_time; url += "/";
-  url += sensor_ID; url += "/"; //Here we set the ID
-  url += water_volume; url += "/";
-
+  url += device_ID; url += "/"; //Here we set the ID
+  url += water_volume; url += "/";  
+ 
   Serial.println(); Serial.print("Requesting URL: "); Serial.println(url);
 
   // This will send the request to the server

@@ -4,16 +4,12 @@ byte sensorPin       = 2;
 float calibrationFactor = 6;
 volatile byte pulseCount = 0; 
 float flow_rate = 0.0;
-//unsigned int flow_liters = 0;
 float flow_liters = 0;
-//unsigned long total_liters = 0;
 float total_liters = 0;
 unsigned long oldTime = 0;
 
 //flow rate constants
 const float SAMPLING_INTERVAL = 1000.0;
-
-//decrease sampling interval, decrease threshold 
 
 float get_vol()
 {
@@ -23,13 +19,6 @@ float get_vol()
   delay(SAMPLING_INTERVAL);
   flow_rate = ((SAMPLING_INTERVAL/ (millis() - oldTime)) * pulseCount) / calibrationFactor;
 
-//  This would print your flowrate nicely (But done later instead)
-//  Serial.print("Flow rate: ");
-//  Serial.println(flow_rate);
-//  Serial.print("Pulsecount: ");
-//  Serial.println(pulseCount); 
-
-  
   oldTime = millis();
 
   while (flow_rate >= FLOWRATE_THRESHOLD)
@@ -41,7 +30,6 @@ float get_vol()
         
         // Calculate flow_rate with scaling for duration & reset oldtime.
         flow_rate = ((SAMPLING_INTERVAL/ (millis() - oldTime)) * pulseCount) / calibrationFactor;
-//        flow_rate -= 1;
         delay(1);
         oldTime = millis();
         
@@ -68,13 +56,11 @@ ICACHE_RAM_ATTR void start_collecting()
 {
   sensor_activated = 1;
 }
-//ICACHE_RAM_ATTR 
+
 ICACHE_RAM_ATTR void pulseCounter()
 {
   // Increment the pulse counter
   pulseCount++;
-//  sensor_activated = 1;
-  //--------------------------------------------Have to set interrupt to get this done
 }
 
 void initialize_flow_rate_sensor()
@@ -85,13 +71,6 @@ void initialize_flow_rate_sensor()
 //The Hall-effect sensor is connected to pin 2 which uses interrupt 0.
 //Configured to trigger on a FALLING state change (transition from HIGH state to LOW state)
   attachInterrupt(digitalPinToInterrupt(sensorInterrupt), pulseCounter, FALLING);
-}
-
-int get_flow_rate()
-{
-  int current_flow_rate = 0;
-
-  
 }
 
 void print_volume()
