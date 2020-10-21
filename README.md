@@ -1,4 +1,4 @@
-# fLOW_Backend
+# fLOW_Hardware
 
 This repository is fLOW's Arduino code, a project to develop a water usage sensor to bring awareness about water waste. For more information on this project, please checkout our main repository [here](https://github.com/allisonchen23/fLOW_frontend).
 
