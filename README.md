@@ -26,7 +26,7 @@ In order to run this code on the ESP8266 Wifi MCU, please make sure you have the
   * If 'Node MCU  1.0' is not an option, follow the steps [here](https://www.instructables.com/id/Esp8266-Firebase-Connection/) to install the board manager
 * Ensure the libraries are installed by going to Sketch > Include Library > Manage Libraries
   * ArduinoJson by Benoit Blanchon Version 5.13.2
-  * NTPClient by Fabrice Weinberg 3.2.0 Help [here](https://lastminuteengineers.com/esp8266-ntp-server-date-time-tutorial/)
+  * NTPClient by Fabrice Weinberg 3.2.0 [Help [here](https://lastminuteengineers.com/esp8266-ntp-server-date-time-tutorial/)]
   
 Now if you plug in your device, ensure your baud rate and ports are correct [We used 115200], you should be able to upload your code! Unfortunately, it currently does not work if not plugged into a computer, but that is (hopefully) an enhancement for the future!
 
