@@ -6,7 +6,7 @@ This repository is fLOW's Arduino code, a project to develop a water usage senso
 Our hardware consists of the following components:
 * An [ESP8266 Wifi MicroConroller Unit (MCU)](https://www.amazon.com/HiLetgo-Internet-Development-Wireless-Micropython/dp/B081CSJV2V/ref=sr_1_1_sspa?dchild=1&keywords=esp8266&qid=1601678227&sr=8-1-spons&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyWjNWR1ozQUFDOFVTJmVuY3J5cHRlZElkPUEwNTk4MzE5MkFYUTVFUzBOMVRZVCZlbmNyeXB0ZWRBZElkPUEwNzkyNTgyMzdMMEZQN0Y2WjBPSCZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU&th=1)
 * A [flowrate sensor](https://www.amazon.com/DIGITEN-Effect-Sensor-Flowmeter-Counter/dp/B00VKAT7EE/ref=sr_1_5?dchild=1&keywords=flow%20rate%20sensor&qid=1600656372&sr=8-5), or like our [previous one](https://www.amazon.com/uxcell-Effect-Flowmeter-0-2-2-5L-SEN-HZ41W/dp/B07DM2FD51/ref=sr_1_14?keywords=Water+Hall+Effect+Flow+Sensor&qid=1579555540&sr=8-14)
-* A 3D printed casing to hold all our parts and attach to the sink. Get your own [here](https://drive.google.com/drive/folders/1zjI_3nG_oABBmjKBfur1F099fGafXyzb?usp=sharing)!
+* A 3D printed casing to hold all our parts and attach to the sink. Get your own [here](https://drive.google.com/drive/folders/1g-Otqf3f9UHjueaPx1u8AdPk9EgP3rr5?usp=sharing)!
 * A [Silicone Sealant](https://www.amazon.com/GE-GE284-Silicone-Kitchen-Squeeze/dp/B000BQWKCY/ref=sr_1_5?dchild=1&keywords=100%25%2Bsilicone%2Bsealant&qid=1587936819&sr=8-5&th=1) to secure fit onto your sink
 
 ### Utilizing the code
