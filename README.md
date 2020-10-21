@@ -4,15 +4,10 @@ Before you go any further, check out this video of this device in action! [http:
 This repository is fLOW's Arduino code, a project to develop a water usage sensor to bring awareness about water waste. For more information on this project, please checkout our main repository [here](https://github.com/allisonchen23/fLOW_frontend).
 
 Our hardware consists of the following components:
-* An ESP8266 Wifi MicroConroller Unit (MCU) 
-[https://www.amazon.com/KeeYees-Internet-Development-Wireless-Compatible/dp/B07HF44GBT/ref=sr_1_2?dchild=1&keywords=ESP8266+SMT+Module-+easy+and+compatible+with+arduino&qid=1603254788&sr=8-2]
-* A flowrate sensor
-[https://www.amazon.com/DIGITEN-Effect-Sensor-Flowmeter-Counter/dp/B00VKAT7EE/ref=sr_1_5?dchild=1&keywords=flow%20rate%20sensor&qid=1600656372&sr=8-5]
-[Or our previous one: https://www.amazon.com/uxcell-Effect-Flowmeter-0-2-2-5L-SEN-HZ41W/dp/B07DM2FD51/ref=sr_1_14?keywords=Water+Hall+Effect+Flow+Sensor&qid=1579555540&sr=8-14]
+* An [ESP8266 Wifi MicroConroller Unit (MCU)](https://www.amazon.com/KeeYees-Internet-Development-Wireless-Compatible/dp/B07HF44GBT/ref=sr_1_2?dchild=1&keywords=ESP8266+SMT+Module-+easy+and+compatible+with+arduino&qid=1603254788&sr=8-2)
+* A [flowrate sensor](https://www.amazon.com/DIGITEN-Effect-Sensor-Flowmeter-Counter/dp/B00VKAT7EE/ref=sr_1_5?dchild=1&keywords=flow%20rate%20sensor&qid=1600656372&sr=8-5), or like our [previous one](https://www.amazon.com/uxcell-Effect-Flowmeter-0-2-2-5L-SEN-HZ41W/dp/B07DM2FD51/ref=sr_1_14?keywords=Water+Hall+Effect+Flow+Sensor&qid=1579555540&sr=8-14)
 * A 3D printed casing to hold all our parts and attach to the sink
-* A Silicone Sealant to secure fit onto your sink
-[https://www.amazon.com/GE-GE284-Silicone-Kitchen-Squeeze/dp/B000BQWKCY/ref=sr_1_5?dchild=1&keywords=100%25%2Bsilicone%2Bsealant&qid=1587936819&sr=8-5&th=1]
-
+* A [Silicone Sealant](https://www.amazon.com/GE-GE284-Silicone-Kitchen-Squeeze/dp/B000BQWKCY/ref=sr_1_5?dchild=1&keywords=100%25%2Bsilicone%2Bsealant&qid=1587936819&sr=8-5&th=1) to secure fit onto your sink
 
 ### Utilizing the code
 
@@ -31,7 +26,7 @@ In order to run this code on the ESP8266 Wifi MCU, please make sure you have the
   * If 'Node MCU  1.0' is not an option, follow the steps [here](https://www.instructables.com/id/Esp8266-Firebase-Connection/) to install the board manager
 * Ensure the libraries are installed by going to Sketch > Include Library > Manage Libraries
   * ArduinoJson by Benoit Blanchon Version 5.13.2
-  * NTPClient by Fabrice Weinberg 3.2.0 [Help here: https://lastminuteengineers.com/esp8266-ntp-server-date-time-tutorial/]
+  * NTPClient by Fabrice Weinberg 3.2.0 Help [here](https://lastminuteengineers.com/esp8266-ntp-server-date-time-tutorial/)
   
 Now if you plug in your device, ensure your baud rate and ports are correct [We used 115200], you should be able to upload your code! Unfortunately, it currently does not work if not plugged into a computer, but that is (hopefully) an enhancement for the future!
 
@@ -53,7 +48,7 @@ On a high level, here's how our collection works. When water runs through the fl
 
 ### Our Journey
 
-While our hardware is far from perfect, it certainly is a big step up from where we started: using a normal Arduino, a wifi module, a time module (now converted to using the NCP time server), and a flow rate sensor. By using an ESP8266 Wifi enabled MCU, we were able to reduce these 4 components into 2. Originally, we also faced a lot of issues connecting our Wifi module to Firebase, our original database before we used Postgres. There are some Firebase Arduino libraries that we utilized, but due to a change in the Firebase API, most of the tutorials we were utilizing were out of date and would not let us upload data. The solution ended up being found here https://medium.com/@o.lourme/our-iot-journey-through-esp8266-firebase-angular-and-plotly-js-part-1-a07db495ac5f (search "FirebaseHttpClient.h"), something we had found in the depths of the Internet.
+While our hardware is far from perfect, it certainly is a big step up from where we started: using a normal Arduino, a wifi module, a time module (now converted to using the NCP time server), and a flow rate sensor. By using an ESP8266 Wifi enabled MCU, we were able to reduce these 4 components into 2. Originally, we also faced a lot of issues connecting our Wifi module to Firebase, our original database before we used Postgres. There are some Firebase Arduino libraries that we utilized, but due to a change in the Firebase API, most of the tutorials we were utilizing were out of date and would not let us upload data. The solution ended up being found [here](https://medium.com/@o.lourme/our-iot-journey-through-esp8266-firebase-angular-and-plotly-js-part-1-a07db495ac5f) (search "FirebaseHttpClient.h"), something we had found in the depths of the Internet.
 
 Another CS best practice we did our best to implement in our hardware code was utilizing functions. Although we could've had all our files in one main.ino file, by breaking it up into different files depending on what functionality the code had, we were able to not only write cleaner code, but also implement changes more easily when we switched to communicating to a server using HTTP requests directly, not a Firebase API. Huge shoutout to Juan Banchs, one of the mechanical engineers on our hardware team who was mainly in charge of coding the hardware, despite not taking any CS classes before! (Note: Juan did not write this README so he is not giving himself a shoutout here, he would never). 
 
