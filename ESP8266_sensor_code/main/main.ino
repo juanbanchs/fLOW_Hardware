@@ -8,8 +8,8 @@
 #include <WiFiUdp.h>  // Libraries to connect to NTP Client ("Time Server")
 
 // Wifi Keys  -  ||Change as needed||
-#define WIFI_SSID "A"
-#define WIFI_PASSWORD "A"
+#define WIFI_SSID "INSERT"
+#define WIFI_PASSWORD "INSERT"
 
 //Initialization
 RtcDS3231<TwoWire> Rtc(Wire); 
